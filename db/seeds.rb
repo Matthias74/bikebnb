@@ -3,5 +3,12 @@
 #
 # Examples:
 #
+
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+user1 = User.create(email: 'user1@gmail.com', password: '00000000',first_name: 'Michel', last_name: 'Galabru')
+user2 = User.create(email: 'user2@gmail.com', password: '00000000',first_name: 'Josiane', last_name: 'Balasko')
+user3 = User.create(email: 'user3@gmail.com', password: '00000000',first_name: 'Johnny', last_name: 'Halliday')
+user4 = User.create(email: 'user4@gmail.com', password: '00000000',first_name: 'Philipe', last_name: 'Smet')
+user5 = User.create(email: 'user5@gmail.com', password: '00000000',first_name: 'Laure', last_name: 'Artho')
+user6 = User.create(email: 'user6@gmail.com', password: '00000000',first_name: 'Elise', last_name: 'Aubin')
