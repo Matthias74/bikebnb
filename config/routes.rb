@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'user/show'
+
   devise_for :users
   root to: 'pages#home'
+  resources :users, only: [:show]
   resources :bikes
 
   # The priority is based upon order of creation: first created -> highest priority.
