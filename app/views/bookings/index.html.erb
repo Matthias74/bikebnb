@@ -1,0 +1,7 @@
+<h1>Bookings#index</h1>
+
+<%@bookings.each do |booking| %>
+<%= booking.bike.name %>
+<%= booking.user.first_name %>
+<%= booking.status %>
+<%end %>

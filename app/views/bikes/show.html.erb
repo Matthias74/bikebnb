@@ -3,4 +3,5 @@
   <h1><%= @bike.description %></h1>
   <p><%# link_to current_user.email, user_path(current_user) %></p>
   <p><%= link_to "Edit this bike", edit_bike_path(@bike) %></p>
+  <p><%= link_to "Book this bike", new_bike_booking_path(@bike) %></p>
 </div>

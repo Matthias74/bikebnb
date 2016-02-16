@@ -12,3 +12,10 @@ user3 = User.create(email: 'user3@gmail.com', password: '00000000',first_name: '
 user4 = User.create(email: 'user4@gmail.com', password: '00000000',first_name: 'Philipe', last_name: 'Smet')
 user5 = User.create(email: 'user5@gmail.com', password: '00000000',first_name: 'Laure', last_name: 'Artho')
 user6 = User.create(email: 'user6@gmail.com', password: '00000000',first_name: 'Elise', last_name: 'Aubin')
+
+bike1 = Bike.create(name: 'vtt', description: 'bon')
+bike2 = Bike.create(name: 'fixie', description: 'tres bon')
+bike3 = Bike.create(name: 'velo route', description: 'excellent')
+bike4 = Bike.create(name: 'hollandais', description: 'moyen')
+bike5 = Bike.create(name: 'triporteur', description: 'léger')
+bike6 = Bike.create(name: 'allongé', description: 'casse gueule')
