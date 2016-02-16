@@ -1,20 +1,35 @@
-<h1>Users#show</h1>
+<div class="text-center">
 
-<p>Find me in app/views/users/show.html.erb</p>
-<%=@user.email%>
-<%=@user.first_name%>
-
-<% @user.bikes.each do |bike| %>
-  <p><%= bike.name %></p>
-  <p><%= bike.description %></p>
-<% end %>
-
-<% if current_user == @user %>
-  <p>Ma page profile</p>
-  <p>Voici mes réservations</p>
-  <%= current_user.bookings %>
+<%if current_user == @user %>
+  <h1>Bienvenue <%= current_user.first_name%></h1>
 <% else %>
-  <p>La page profile d'un autre user</p>
-  <%= @user.email %>
-<% end %>
+  <h1>Bienvenue <%= @user.first_name%></h1>
+<%end%>
 
+  <% @user.bikes.each do |bike| %>
+    <p><%= bike.name %></p>
+    <p><%= bike.description %></p>
+  <% end %>
+
+  <% if current_user == @user %>
+    <p>Ma page de profile</p>
+    <p>Voici mes réservations</p>
+    <% current_user.bookings.each do |booking| %>
+      <%= booking.start_date %>
+      <% end %>
+    <p>Mes vélos</p>
+      <% current_user.bikes.each do |bike| %>
+    <p><%= bike.name %></p>
+    <p><%= bike.description %></p>
+  <% end %>
+
+  <% else %>
+    <p>La page profile d'un autre user</p>
+    <%= @user.email %>
+    <p>Voici les vélos</p>
+      <% @user.bikes.each do |bike| %>
+      <p><%= bike.name %></p>
+      <p><%= bike.description %></p>
+    <% end %>
+  <% end %>
+</div>
