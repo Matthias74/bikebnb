@@ -1,0 +1,23 @@
+<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path("bikes1.jpeg") %>);">
+  <div class="banner-content">
+    <h1 class="text-center">ALL Bikes</h1>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row" >
+    <% @bikes.each do |bike| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= render "bike_card", bike: bike %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <h1 class="text-center">
+  <%= link_to 'Create a new bike', new_bike_path %></h1>
+</div>

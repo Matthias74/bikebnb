@@ -1,0 +1,7 @@
+<h1>THE bike!</h1>
+
+<%= render 'form' %>
+<%= link_to "Delete", bike_path(@bike), class: 'btn btn-primary', method: :delete %>
+
+<%= link_to 'Show', @bike %> |
+<%= link_to 'Back', bikes_path %>
