@@ -7,14 +7,37 @@ Bienvenue
 
 @rentals.each-->
 
-<h1>Bienvenue <%=current_user.first_name%></h1>
+<div class="text-center">
+  <h1>Bienvenue <%=current_user.first_name%></h1>
+  <!-- Don't forget to change the photo url to add the user photo-->
+  <%= image_tag "#", class: "img-circle", id: "#"%>
 
-<h2>Voici la liste des réservations sur vos vélos </h2>
-<% @bookings.each do |booking|%>
-<%= bike.booking%>
-<%end%>
+  <div class="dashboard-cards">
+    <h2>Voici la liste des réservations effectuées sur vos vélos </h2>
+    <ul>
+      <% @bookings.each do |booking| %>
+        <li>
+          <%= booking.current_user %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<h2>Voici la liste de vos vélos</h2>
-<%@bikes.each do |bike|%>
-<%= bike %>
-<%end%>
+  <div class="dashboard-cards">
+    <h2>Voici la liste de vos vélos</h2>
+    <% @bikes.each do |bike| %>
+      <%= bike %>
+    <% end %>
+  </div>
+
+  <div class="dashboard-cards">
+    <h2>Voici la liste des locations que vous avez effectué </h2>
+    <ul>
+      <% @rentals.each do |rental|%>
+        <li>
+          <%= rental.id %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
