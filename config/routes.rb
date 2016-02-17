@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  root to: 'bikes#index'
+  root to: 'pages#home'
   resources :users, only: [:show]
   resources :bikes do
     resources :bookings, only: [:new, :create, :show]
