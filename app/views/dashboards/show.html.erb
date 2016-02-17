@@ -1,0 +1,20 @@
+<!-- TODO
+Bienvenue
+
+@bookings.each
+
+@bikes.each
+
+@rentals.each-->
+
+<h1>Bienvenue <%=current_user.first_name%></h1>
+
+<h2>Voici la liste des réservations sur vos vélos </h2>
+<% @bookings.each do |booking|%>
+<%= bike.booking%>
+<%end%>
+
+<h2>Voici la liste de vos vélos</h2>
+<%@bikes.each do |bike|%>
+<%= bike %>
+<%end%>

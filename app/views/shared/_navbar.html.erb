@@ -37,6 +37,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to user_path(current_user) do %>
+                <i class="fa fa-check-square"></i> <%= t ".profile", default: "Bookings" %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to "#" do %>
                 <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
               <% end %>
