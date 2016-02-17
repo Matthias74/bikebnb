@@ -1,2 +1,24 @@
-toto
+<div class="container">
+  <h2>Set your booking dates</h2>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+        <%= simple_form_for([@bike, @booking]) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :start_date, as: :string, input_html:{class: "start_date"} %>
+          <%= f.input :end_date, as: :string, input_html:{class: "end_date"} %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+  </div>
+</div>
 
+<%= content_for(:after_js) do %>
+  <script>
+    $('.start_date').datepicker({
+      format: "dd/MM/yyyy"
+    });
+    $('.end_date').datepicker({
+      format: "dd/MM/yyyy"
+    });
+  </script>
+<% end %>
