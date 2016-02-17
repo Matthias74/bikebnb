@@ -14,19 +14,22 @@ Bienvenue
 
   <div class="dashboard-cards">
     <h2>Voici la liste des réservations effectuées sur vos vélos </h2>
-    <ul>
-      <% @bookings.each do |booking| %>
-        <li>
-          <%= booking.current_user %>
-        </li>
+      <% current_user.bikes.each do |bike| %>
+        <p>Les réservations de <%= bike.name %></p>
+        <ul>
+          <% bike.bookings.each do |booking| %>
+            <li>Start Date: <%= booking.start_date %></li>
+            <li>End Date: <%= booking.end_date %></li>
+            <li>Booked by: <%= booking.user.first_name %></li>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
   </div>
 
   <div class="dashboard-cards">
     <h2>Voici la liste de vos vélos</h2>
     <% @bikes.each do |bike| %>
-      <%= bike %>
+      <%= bike.name %>
     <% end %>
   </div>
 

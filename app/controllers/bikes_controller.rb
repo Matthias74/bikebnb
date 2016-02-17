@@ -16,14 +16,13 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(bike_params)
+    @bike.user = current_user
 
     respond_to do |format|
       if @bike.save
         format.html { redirect_to @bike, notice: 'Your bike announce was successfully created.' }
-        format.json { render :show, status: :created, location: @bike }
       else
         format.html { render :new }
-        format.json { render json: @bike.errors, status: :unprocessable_entity }
       end
     end
   end
