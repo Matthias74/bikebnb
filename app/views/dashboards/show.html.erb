@@ -34,9 +34,11 @@ Bienvenue
     <h2>Voici la liste des locations que vous avez effectué </h2>
     <ul>
       <% @rentals.each do |rental|%>
-        <li>
-          <%= rental.id %>
-        </li>
+        <li><%= rental.id %></li>
+        <li><%= rental.bike.name %></li>
+        <li><%= rental.bike.description %></li>
+        <li><%= rental.start_date %></li>
+        <li><%= rental.end_date %></li>
       <% end %>
     </ul>
   </div>
