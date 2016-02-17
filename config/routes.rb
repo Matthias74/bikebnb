@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  root to: 'pages#home'
+  root to: 'bikes#index'
   resources :users, only: [:show]
   resources :bikes do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :show]
   end
   resources :bookings, only: [:index, :edit, :update]
 
