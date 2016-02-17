@@ -7,12 +7,16 @@ Bienvenue
 
 @rentals.each-->
 
-<div class="text-center">
-  <h1>Bienvenue <%=current_user.first_name%></h1>
-  <!-- Don't forget to change the photo url to add the user photo-->
-  <%= image_tag "#", class: "img-circle", id: "#"%>
+<div class="dashboard text-center">
+  <div class="dashboard-userinfo">
+    <h1>Bienvenue <%=current_user.first_name%></h1>
+    <!-- Don't forget to change the photo url to add the user photo-->
+    <div class="dashboard-userinfopicture">
+    <%= image_tag "profile_picture.jpg", class: "img-circle dashboard-image dashboard-border", id: "#"%>
+    </div>
+  </div>
 
-  <div class="dashboard-cards">
+  <div class="dashboard-cards dashboard-border text-center">
     <h2>Voici la liste des réservations effectuées sur vos vélos </h2>
       <% current_user.bikes.each do |bike| %>
         <p>Les réservations de <%= bike.name %></p>
@@ -26,14 +30,14 @@ Bienvenue
       <% end %>
   </div>
 
-  <div class="dashboard-cards">
+  <div class="dashboard-cards dashboard-border text-center">
     <h2>Voici la liste de vos vélos</h2>
     <% @bikes.each do |bike| %>
       <%= bike.name %>
     <% end %>
   </div>
 
-  <div class="dashboard-cards">
+  <div class="dashboard-cards dashboard-border text-center">
     <h2>Voici la liste des locations que vous avez effectué </h2>
     <ul>
       <% @rentals.each do |rental|%>
