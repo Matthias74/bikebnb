@@ -18,3 +18,10 @@ Bienvenue
 <%@bikes.each do |bike|%>
 <%= bike %>
 <%end%>
+
+<% @rentals.each do |rental|  %>
+  <p><%= rental.bike.name %></p>
+  <p><%= rental.bike.description %></p>
+  <p><%= rental.start_date %></p>
+  <p><%= rental.end_date %></p>
+<% end %>
