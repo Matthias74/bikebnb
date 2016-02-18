@@ -12,6 +12,7 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+    <%= cloudinary_js_config %>
     <%= content_for(:after_js) %>
     <%= render 'shared/footer' %>
   </body>

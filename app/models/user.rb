@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :bikes
   has_many :bookings
   validates :email, uniqueness: true
+  mount_uploader :photo, PhotoUploader
 end
