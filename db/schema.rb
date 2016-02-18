@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160218130853) do
     t.datetime "updated_at", null: false
     t.datetime "start_date"
     t.datetime "end_date"
+    t.boolean  "accepted"
   end
 
   add_index "bookings", ["bike_id"], name: "index_bookings_on_bike_id", using: :btree

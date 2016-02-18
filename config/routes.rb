@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: [:show]
   resources :bikes do
-    resources :bookings, only: [:new, :create, :show]
+    resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:index, :edit, :update]
+  resources :bookings, only: [:index, :edit, :update, :show]
   resource :dashboard, only: [:show]
 
   mount Attachinary::Engine => "/attachinary"

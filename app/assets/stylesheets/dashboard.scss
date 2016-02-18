@@ -1,21 +1,36 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user-welcome{
+  margin-top: 0px;
+    padding-top: 1px;
+    margin-bottom: 11px;
+}
 .dashboard{
+  height: 100vh;
   background-color: #EDEFED;
   background-size: cover;
+  padding-top: 60px;
   &-userinfo{
+  width: 80%;
+  margin: 0px auto;
+  padding-top: 0px;
   display: flex;
+  justify-content: space-between;
   }
   &-userinfopicture{
   flex: 0 0 20%;
   }
+  &-userinfoname{
+  flex: 1 0 auto;
+  }
   &-cards{
     background-color: #FFFFFF;
-    width: 800px;
-    height: 300px;
-    margin-bottom: 60px;
-    margin-top: 60px;
+    width: 80%;
+
+    // height: 300px;
+    margin: 20px auto;
+    padding: 10px 20px;
     border-radius: 10px;
   }
   &-image{
