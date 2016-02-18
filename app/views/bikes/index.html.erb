@@ -7,11 +7,15 @@
 <div class="bike-banner">
   <div class="container padded" id="bikes">
     <div class="row" >
+    <% if @bikes.count > 0%>
       <% @bikes.each do |bike| %>
         <div class="col-xs-12 col-sm-4">
           <%= render "bike_card", bike: bike %>
         </div>
       <% end %>
+    <%else%>
+      <p>Sorry dude, there is no bike for the moment</p>
+    <%end%>
     </div>
   </div>
 </div>

@@ -63,9 +63,11 @@ Bienvenue
   <div class="dashboard-cards dashboard-border text-center">
     <h4>Here's the list of your bikes:</h4>
     <% if @bikes.count > 0 %>
-      <% @bikes.each do |bike| %>
-        <%= bike.name %>
-      <% end %>
+      <ul>
+        <% @bikes.each do |bike| %>
+         <li> <%= bike.name %><%= link_to "delete this bike", bike_path(bike), method: :delete , class: "btn btn-primary"%></li>
+        <% end %>
+      </ul>
     <% else %>
       <p>You don't have any bike yet, <%= link_to "add a bike", new_bike_path %></p>
     <% end %>
