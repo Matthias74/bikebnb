@@ -1,8 +1,9 @@
-<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("bikes3.jpg") %>);">
-  <div class="card-category" style="width: 100px"></div>
-  <div class="card-description">
-    <h2><%= bike.name %></h2>
-    <p><%= bike.description %></p>
+  <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("bikes3.jpg") %>);">
+    <div class="card-category" style="width: 100px"></div>
+    <div class="card-description">
+      <h2><%= bike.name %></h2>
+      <p><%= bike.description %></p>
+    </div>
+    <%= link_to "", bike_path(bike), { class: "card-link" } %>
   </div>
-  <%= link_to "", bike_path(bike), { class: "card-link" } %>
-</div>
+
