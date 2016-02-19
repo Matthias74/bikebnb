@@ -6,84 +6,86 @@ Bienvenue
 @bikes.each
 
 @rentals.each-->
+<div class="bike-breath"></div>
+<div class="">
+  <div class="dashboard text-center">
+    <div class="text-center user-welcome">
+      <h1>Welcome <%=current_user.first_name%></h1>
+    </div>
+    <div class="dashboard-userinfo">
+      <!-- Don't forget to change the photo url to add the user photo-->
+  <!--     <div class="dashboard-userinfopicture">
 
-<div class="dashboard text-center">
-  <div class="text-center user-welcome">
-    <h1>Welcome <%=current_user.first_name%></h1>
-  </div>
-  <div class="dashboard-userinfo">
-    <!-- Don't forget to change the photo url to add the user photo-->
-<!--     <div class="dashboard-userinfopicture">
+      <%= image_tag current_user.picture, class: "img-circle dashboard-image dashboard-border", id: "#"%>
+      </div> -->
+    </div>
 
-    <%= image_tag current_user.picture, class: "img-circle dashboard-image dashboard-border", id: "#"%>
-    </div> -->
-  </div>
-
-  <div class="dashboard-cards dashboard-border text-center">
-    <h4>Here's the list of the bookings made on your bikes:</h4>
-      <% if @bikes.count > 0 %>
-        <% @bikes.each do |bike| %>
-          <p class="text-left">List of bookings on <strong><%= bike.name.capitalize %></strong>:</p>
-          <% if bike.bookings.count > 0 %>
-            <ul class="list-unstyled text-left">
-              <% bike.bookings.each do |booking| %>
-                <li>
-                  <ul class="list-unstyled list-inline flexbox">
-                    <li class="flex-item-grow"><strong><%= booking.user.first_name %></strong> has booked your bike from <%= booking.start_date.strftime("%Y/%m/%d") %> to <%= booking.end_date.strftime("%Y/%m/%d") %></li>
-                    <% if booking.accepted.nil? %>
-                      <li class="flex-item">
-                        <%= simple_form_for(booking) do |f| %>
-                          <%= f.input :accepted, as: :hidden, input_html: {value: true} %>
-                          <%= f.submit "Accept", class: "btn btn-success" %>
-                        <% end %>
-                      </li>
-                      <li class="flex-item">
-                        <%= simple_form_for(booking) do |f| %>
-                          <%= f.input :accepted, as: :hidden, input_html: {value: false} %>
-                          <%= f.submit "Decline", class: "btn btn-danger" %>
-                        <% end %>
-                      </li>
-                    <% else %>
-                      <li class="flex-item">
-                        Status: <%= booking.accepted ? "accepted" : "declined" %>
-                      </li>
-                    <% end %>
-                  </ul>
-                </li>
-              <% end %>
-            </ul>
-          <% else %>
-            <p>No booking on your bikes yet</p>
+    <div class="dashboard-cards dashboard-border text-center">
+      <h4>Here's the list of the bookings made on your bikes:</h4>
+        <% if @bikes.count > 0 %>
+          <% @bikes.each do |bike| %>
+            <p class="text-left">List of bookings on <strong><%= bike.name.capitalize %></strong>:</p>
+            <% if bike.bookings.count > 0 %>
+              <ul class="list-unstyled text-left">
+                <% bike.bookings.each do |booking| %>
+                  <li>
+                    <ul class="list-unstyled list-inline flexbox">
+                      <li class="flex-item-grow"><strong><%= booking.user.first_name %></strong> has booked your bike from <%= booking.start_date.strftime("%Y/%m/%d") %> to <%= booking.end_date.strftime("%Y/%m/%d") %></li>
+                      <% if booking.accepted.nil? %>
+                        <li class="flex-item">
+                          <%= simple_form_for(booking) do |f| %>
+                            <%= f.input :accepted, as: :hidden, input_html: {value: true} %>
+                            <%= f.submit "Accept", class: "btn btn-success" %>
+                          <% end %>
+                        </li>
+                        <li class="flex-item">
+                          <%= simple_form_for(booking) do |f| %>
+                            <%= f.input :accepted, as: :hidden, input_html: {value: false} %>
+                            <%= f.submit "Decline", class: "btn btn-danger" %>
+                          <% end %>
+                        </li>
+                      <% else %>
+                        <li class="flex-item">
+                          Status: <%= booking.accepted ? "accepted" : "declined" %>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              <p>No booking on your bikes yet</p>
+            <% end %>
           <% end %>
+        <% else %>
+          <p>You don't have any bike yet, <%= link_to "add a bike", new_bike_path %></p>
         <% end %>
+    </div>
+
+    <div class="dashboard-cards dashboard-border text-center">
+      <h4>Here's the list of your bikes:</h4>
+      <% if @bikes.count > 0 %>
+        <ul class="list-unstyled text-left">
+          <% @bikes.each do |bike| %>
+           <li style="margin-bottom: 14px;"> <strong style="padding-right: 14px;"><%= bike.name %></strong><%= link_to "delete", bike_path(bike), method: :delete , class: "btn btn-danger"%></li>
+          <% end %>
+        <ul class="list-unstyled text-left">
       <% else %>
         <p>You don't have any bike yet, <%= link_to "add a bike", new_bike_path %></p>
       <% end %>
-  </div>
+    </div>
 
-  <div class="dashboard-cards dashboard-border text-center">
-    <h4>Here's the list of your bikes:</h4>
-    <% if @bikes.count > 0 %>
-      <ul class="list-unstyled text-left">
-        <% @bikes.each do |bike| %>
-         <li style="margin-bottom: 14px;"> <strong style="padding-right: 14px;"><%= bike.name %></strong><%= link_to "delete", bike_path(bike), method: :delete , class: "btn btn-danger"%></li>
-        <% end %>
-      <ul class="list-unstyled text-left">
-    <% else %>
-      <p>You don't have any bike yet, <%= link_to "add a bike", new_bike_path %></p>
-    <% end %>
-  </div>
-
-  <div class="dashboard-cards dashboard-border text-center">
-    <h4>Here's the list of the bikes you booked:</h4>
-    <% if @rentals.count > 0 %>
-      <ul class="list-unstyled text-left">
-        <% @rentals.each do |rental|%>
-          <li><strong><%= rental.bike.name.capitalize %>:</strong> <%= rental.bike.description %> (from <%= rental.start_date.strftime("%Y/%m/%d") %> to <%= rental.end_date.strftime("%Y/%m/%d") %>) - Status: <%= rental.accepted ? "accepted" : (rental.accepted.nil? ? "pending" : "declined") %></li>
-        <% end %>
-      </ul>
-    <% else %>
-       <p>You don't have any booking yet, <%= link_to "pick a bike", bikes_path %></p>
-    <%end%>
+    <div class="dashboard-cards dashboard-border text-center">
+      <h4>Here's the list of the bikes you booked:</h4>
+      <% if @rentals.count > 0 %>
+        <ul class="list-unstyled text-left">
+          <% @rentals.each do |rental|%>
+            <li><strong><%= rental.bike.name.capitalize %>:</strong> <%= rental.bike.description %> (from <%= rental.start_date.strftime("%Y/%m/%d") %> to <%= rental.end_date.strftime("%Y/%m/%d") %>) - Status: <%= rental.accepted ? "accepted" : (rental.accepted.nil? ? "pending" : "declined") %></li>
+          <% end %>
+        </ul>
+      <% else %>
+         <p>You don't have any booking yet, <%= link_to "pick a bike", bikes_path %></p>
+      <%end%>
+    </div>
   </div>
 </div>
