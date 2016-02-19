@@ -57,7 +57,7 @@ private
     # Never trust parameters from the scary internet, only allow the white list through.
     # check if we need :user, :user_id or nothing
     def bike_params
-      params.require(:bike).permit(:name, :description, :user)
+      params.require(:bike).permit(:name, :description, :user, :photo, :photo_cache)
     end
 
 end

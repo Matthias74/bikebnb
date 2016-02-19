@@ -1,9 +1,17 @@
-<div class="container">
-  <div class="row" >
-    <% @bikes.each do |bike| %>
-      <div class="col-xs-12 col-sm-4">
-        <%= render "bike_card", bike: bike %>
-      </div>
-    <% end %>
+<div class="bike-breath">
+  <div class="bikes-all">
+    <h2 class="text-center">All the Bikes</h2>
+  </div>
+</div>
+
+<div class="bike-banner">
+  <div class="container padded" id="bikes">
+    <div class="row" >
+      <% @bikes.each do |bike| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render "bike_card", bike: bike %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
