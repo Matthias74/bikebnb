@@ -22,6 +22,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'binding_of_caller'
