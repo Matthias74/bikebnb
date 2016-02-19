@@ -64,6 +64,22 @@
 .navbar-wagon-button:hover {
   color: white;
   background: rgb(86, 130, 161);
+  border-color: white;
+}
+
+.navbar-wagon-button-login {
+  margin-left: 10px;
+  padding: 0 20px;
+  border-radius: 20em;
+  line-height: 40px;
+  background-color: rgb(86, 130, 161);
+  color: white;
+  font-size: 14px;
+  border: 2px solid rgb(86, 130, 161);
+}
+.navbar-wagon-button:hover-login {
+  color: white;
+  background: rgb(86, 130, 161);
   border-color: #ac2626;
 }
 
