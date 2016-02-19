@@ -9,14 +9,14 @@ Bienvenue
 
 <div class="dashboard text-center">
   <div class="text-center user-welcome">
-    <h1>Bienvenue <%=current_user.first_name%></h1>
+    <h1>Welcome <%=current_user.first_name%></h1>
   </div>
   <div class="dashboard-userinfo">
     <!-- Don't forget to change the photo url to add the user photo-->
-    <div class="dashboard-userinfopicture">
+<!--     <div class="dashboard-userinfopicture">
 
     <%= image_tag current_user.picture, class: "img-circle dashboard-image dashboard-border", id: "#"%>
-    </div>
+    </div> -->
   </div>
 
   <div class="dashboard-cards dashboard-border text-center">
@@ -64,11 +64,11 @@ Bienvenue
   <div class="dashboard-cards dashboard-border text-center">
     <h4>Here's the list of your bikes:</h4>
     <% if @bikes.count > 0 %>
-      <ul>
+      <ul class="list-unstyled text-left">
         <% @bikes.each do |bike| %>
-         <li> <%= bike.name %><%= link_to "delete", bike_path(bike), method: :delete , class: "btn btn-danger-outline"%></li>
+         <li style="margin-bottom: 14px;"> <strong style="padding-right: 14px;"><%= bike.name %></strong><%= link_to "delete", bike_path(bike), method: :delete , class: "btn btn-danger"%></li>
         <% end %>
-      </ul>
+      <ul class="list-unstyled text-left">
     <% else %>
       <p>You don't have any bike yet, <%= link_to "add a bike", new_bike_path %></p>
     <% end %>
