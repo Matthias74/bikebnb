@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   after_create :send_welcome_email
+
   private
 
   def send_welcome_email
